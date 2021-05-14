@@ -1,0 +1,15 @@
+{% extends "evento.html" %}
+
+{% block links %}
+    {% block estilos %}
+        {{parent()}}
+        <link rel="StyleSheet" type="text/css" href="/css/evento_imprimir.css" />
+    {% endblock %}
+{% endblock %}
+
+
+{% block article %}
+    {{parent()}}
+    {% block botonComentarios %}
+    {% endblock %}
+{% endblock %}

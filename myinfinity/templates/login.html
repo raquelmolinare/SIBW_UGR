@@ -1,0 +1,37 @@
+{% extends "padre.html" %}
+
+{% block links %}
+    {% block estilos %}
+        {{parent()}}
+        <link rel="StyleSheet" type="text/css" href="../css/login.css" />
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    <div id="login">
+        <!--Boton para cerrar panel-->
+        <a HREF="http://localhost/"><button type="button"  id="closelogin" ></button></a>
+            
+        <div id="contenedorlogin">
+
+            <div id="logotipologin">
+                <!--Logotipo-->
+                <div id="logologin"><img id="imgLogo" src="../img/logo.png" /> </div>
+
+                <!--Nombre de la pagina-->
+                <h1 id="titulologin">M y I n f i n i t y .</h1>
+            </div>
+            
+            <form  class="formulariologin" action="login.php" method="post">
+                <label for="nickInput">Nick</label><br>
+                <input type="text" name="nick" /><br>
+                <label for="passwordInput">Password</label><br>
+                <input type="password" name="contraseña" /><br>
+                <input class="signin" type="submit" value="Sign In" />
+                <a HREF="http://localhost/signup.php"><button type="button" class="registro" >Sign Up</button></a>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

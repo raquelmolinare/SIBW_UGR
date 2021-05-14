@@ -1,0 +1,64 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="StyleSheet" type="text/css" href="../css/cuenta.css" />
+{% endblock %}
+
+
+{% block article %}
+
+    {% if edicion == 1 %}
+
+        <div class="micuenta">
+
+            <!--Formulario edidicon-->
+            <form class="formulario" action="cuenta.php" method="POST">
+                <!--Etiqueta Nick input-->
+                <label for="nickInput">Nick *</label><br>
+                <input type="text" id="nickInput" name="nuevonick" value=""><br>
+                <!--Etiqueta Nombre input-->
+                <label for="nombreInput">Nombre *</label><br>
+                <input type="text" id="nombreInput" name="nuevonombre" value=""><br>
+                <!--Etiqueta Apellidos input-->
+                <label for="nombreInput">Apellidos *</label><br>
+                <input type="text" id="apellidosnput" name="nuevoapellidos" value=""><br>
+                <!--Etiqueta Email input-->
+                <label for="emailInput">E-mail *</label><br>
+                <input type="text" id="emailInput" name="nuevoemail"  value=""><br>
+                <!--Etiqueta contraseña input-->
+                <label for="passwordInput">Nueva Contraseña *</label><br>
+                <input type="password" name="contraseña1" value="" /><br>
+                <label for="passwordInput">Repite la nueva contraseña *</label><br>
+                <input type="password" name="contraseña2" value="" /><br>
+
+                <p>*: Campos obligatorios</p>
+                <!--Boton Guardar-->
+                <input id="guardaredicion" type="submit" value="Guardar" />
+            </form>
+            <a HREF="/cuenta.php"><button type="button" id="cancelaredicion" >Cancelar</button></a>
+
+        </div>
+        
+    {% else %}
+        <div class="micuenta">
+            <!--Informacion de la cuenta-->
+            <a HREF="/cuenta.php/?edicion"><button type="button" id="editarcuenta" >Editar</button></a>
+           
+            <h1>Mis datos</h1>
+            <h3>Nick</h3>
+            <p>{{ usuario['nick'] }}</p>
+            <h3>Nombre</h3> 
+            <p>{{ usuario['nombre'] }}</p>
+            <h3>Apellidos</h3> 
+            <p>{{ usuario['apellidos'] }}</p>    
+            <h3>Correo electrónico</h3>
+            <p>{{ usuario['email'] }}</p>
+            <h3>Tipo de usuario</h3>
+            <p>{{ usuario['tipo'] }}</p>
+
+        </div>
+    {% endif %}
+    
+    
+{% endblock %}

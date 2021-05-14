@@ -1,0 +1,199 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Montserrat+Alternates:wght@300;500&family=Montserrat:wght@300;500&family=Roboto+Mono:wght@300;500&family=Roboto:wght@300;500&family=Work+Sans:wght@300;500&display=swap');
+
+/*Eliminar el margen y el relleno de todos los elementos HTML*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*-------------------------------------------------*/
+/*--------------CABECERA---------------------------*/
+
+#contenedorCabecera{
+	background-color:#FFF;
+    border-bottom: 2px solid black;
+}
+
+header{
+	background-color: #FFF;
+
+	/*Horizontal Vertical Difuminado*/
+    box-shadow: 0px 0px 0px;
+	box-shadow:       	0px 0px 0px ;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 0px ;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 0px ;  /* Firefox 3.5 - 3.6 */
+}
+
+#contenedorLogoTitulo{
+    width: 100%;
+    margin-top: 0em;
+}
+
+#contenedorLogo{
+	background-image: url("../img/logoF.png");
+    background-position: center;
+	background-size:4em;
+    background-repeat: no-repeat;
+
+	width: 8em;
+	height: 8em;
+
+    margin-left:3em;
+    margin-right: 4em;
+}
+
+
+#nombre{
+	color: #000;
+	margin-right: auto;
+	margin-left: 0em;
+	font-family: 'Maven Pro';
+}
+
+#contenedorMenu {
+	font-size:0mm;
+}
+
+#menu {
+	padding-left: 0%;
+}
+
+#menu li a {
+	width: 0em;
+	padding: 0.0%;
+	border-bottom: 0.0em solid black;
+}
+
+
+
+/*--------------CONTENEDOR PRINCIPAL--------------------------*/
+#contenedorPrincipal{
+	background-color:#FFF;
+}
+
+/*-------------------------------------------------*/
+/*--------------LATERAL--------------------------*/
+
+aside{
+    width:0em;
+}
+
+/*-------------------------------------------------*/
+/*-----------ZONA PRINCIPAL EVENTO----------------*/
+
+article{
+	background-color: #fff;
+	float: left;
+    width:100%;
+
+	font-family: 'Roboto';
+}
+
+.informacion{
+    background-color:#fff;
+    color: black;
+
+    width: 70%;
+
+    margin-left: 7%;
+    margin-top: 4em;
+
+    font-family: 'Roboto';
+    font-size:medium;
+}
+
+#infoEvento {
+    width: 90%;
+
+    margin-left: 5%;
+    margin-top: 2em;
+}
+
+#infoEvento  h1{
+    font-family: 'Roboto';
+    font-size:2em;
+    font-weight: bolder;
+    padding-bottom: 0.3em;
+    
+}
+
+
+#infoEvento h2{
+    color: #000;
+    font-size:1.5em;
+    font-weight:normal;
+    padding-bottom: 0.5em;
+    
+}
+
+#infoEvento  h3{
+    font-size:1.2em;
+    font-weight: lighter;
+    
+}
+
+#texto{
+    background-color:#FFF;
+    width: 85%;
+
+    margin-left: 5%;
+    padding: 0em;
+    padding-left: 0em;
+
+    font-size:1.3em;
+    font-weight:lighter;
+}
+
+#botones{
+    visibility: hidden;
+}
+
+.imgBotones{
+	width: 0em;
+	height: 0em;
+	margin-left: 0.5em;
+}
+
+.imagenes{
+
+    width: 19%;
+    min-height:35em;
+    margin-top:4em;
+}
+
+/*-------------------------------------------------*/
+/*--------------PIE DE PAGINA----------------------*/
+
+footer{
+	background-color:#ffffff;
+	
+	font-family: 'Roboto';
+	color: #000;
+	font-weight: lighter;
+	font-size: 1em;
+
+	height: 3.5em;
+
+	border-top: 0.1em solid #000;
+}
+
+.contenedorImgPie{
+	width: 15em;
+	height: 5em;
+
+	margin-left: 10%;
+	margin-right: 0%;
+}
+
+
+#imgPie{
+	width: 2.5em;
+	height: auto;
+}
+
+
+.imgRRSS{
+	width: 0em;
+	margin: 0%;
+}

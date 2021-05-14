@@ -1,0 +1,88 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Montserrat+Alternates:wght@300;500&family=Montserrat:wght@300;500&family=Roboto+Mono:wght@300;500&family=Roboto:wght@300;500&family=Work+Sans:wght@300;500&display=swap');
+
+/*Eliminar el margen y el relleno de todos los elementos HTML*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*-------------------------------------------------*/
+/*-----------ZONA PRINCIPAL PORTADA----------------*/
+
+article{
+	background-color: #fff;
+	float: left;
+    width:80%;
+
+	
+	display:grid;
+	/*grid-template-columns: repeat(3,33%);*/
+	/*grid-template-columns: minmax(1fr,3fr);*/
+	grid-template-columns: repeat(auto-fill, minmax(300px, 405px)); /*Para crear columnas que sean variables según el espacio*/
+	justify-content: center;
+	align-items: center;
+	
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+
+	font-family: 'Work Sans';
+}
+
+.publicacion{
+	background-color: #fff;
+	border-bottom: 2px solid #000;
+	position:relative;
+	
+	width:22em;
+	height:17em;
+
+	/*float:left;*//*No hace falta si se usa el grid con columnas*/
+
+	margin-left: 7%;
+	
+	margin-right: 7%;
+
+	margin-top: 5em;
+	margin-bottom:5em;
+
+	overflow:hidden; /*Desbordamiento*/
+}
+
+.publicacion:hover .overlay{
+	background-color:black;
+	opacity:0.5;
+	height:20em;
+}
+
+.overlay {
+	width: 100%;
+	height:0%;
+	transition:1s ;
+}
+
+.imgPublicacion{
+	position:absolute;
+	width:100%;
+	height:80%;
+}
+
+.infoEvento{
+	color: #C1B6A4;
+	font-size: 1em;
+	/*font-style: italic;*/
+	font-weight: lighter;
+	position: absolute;
+	top: 81%;
+	left: 3%;
+}
+
+.nombreArtista{
+	color: #000;
+	font-size: 1.5em;
+	font-weight: bolder;
+	position: absolute;
+	top: 88%;
+	left: 3%;
+}

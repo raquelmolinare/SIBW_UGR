@@ -1,0 +1,57 @@
+{% extends "padre.html" %}
+
+{% block links %}
+    {% block estilos %}
+        {{parent()}}
+        <link rel="StyleSheet" type="text/css" href="../css/login.css" />
+    {% endblock %}
+{% endblock %}
+
+
+{% block body %}
+
+    <div id="signup">
+        <!--Boton para cerrar panel-->
+        <a HREF="http://localhost/"><button type="button"  id="closelogin" ></button></a>
+            
+        <div id="contenedorlogin">
+
+            <div id="logotipologin">
+                <!--Logotipo-->
+                <div id="logologin"><img id="imgLogo" src="../img/logo.png" /> </div>
+
+                <!--Nombre de la pagina-->
+                <h1 id="titulologin">M y I n f i n i t y .</h1>
+            </div>
+            
+            <form  class="formulariologin" action="signup.php" method="post">
+                <label for="nickInput">Nick</label><br>
+                <input type="text" name="nick" /><br>
+                <label for="nombreInput">Nombre</label><br>
+                <input type="text" name="nombre" /><br>
+                <label for="nickInput">Apellidos</label><br>
+                <input type="text" name="apellidos" /><br>
+                <label for="nickInput">email</label><br>
+                <input type="text" name="email" /><br>
+                <label for="passwordInput">Password</label><br>
+                <input type="password" name="contraseña" /><br>
+
+                <!--
+                <p> <label for="tipoInput">Tipo de usuario:</label></p>
+                <p> 
+                    <input type="radio" name="tipo" value="registrado"> <label for="registrado">Registrado</label>
+                    <input type="radio" name="tipo" value="moderador"><label for="moderador">Moderador</label>
+                </p>
+                <p>
+                    <input type="radio" name="tipo" value="gestor"> <label for="gestor">Gestor </label>
+                    <input type="radio" name="tipo" value="superusuario"> <label for="superusuario">Superusuario</label>
+                </p>
+                -->
+                    
+                <input class="registro" type="submit" value="Sign Up" />
+            </form>
+
+        </div>
+    </div>
+    
+{% endblock %}

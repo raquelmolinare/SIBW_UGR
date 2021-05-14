@@ -1,0 +1,181 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Montserrat+Alternates:wght@300;500&family=Montserrat:wght@300;500&family=Roboto+Mono:wght@300;500&family=Roboto:wght@300;500&family=Work+Sans:wght@300;500&display=swap');
+
+/*Eliminar el margen y el relleno de todos los elementos HTML*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*-------------------------------------------------*/
+/*-----------ZONA PRINCIPAL EVENTO----------------*/
+
+article{
+	background-color: #fff;
+	float: right;
+    width:80%;
+
+	font-family: 'Work Sans';
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 4em;
+    padding-bottom: 4em;
+
+}
+
+/*-------PARTE DE LA IZQUIERDA / informacion-----*/
+.informacion{
+    background-color:#f9f8f2;
+    color: black;
+
+    width: 65%;
+    min-width:18em ;
+    height: auto;
+
+    font-family: 'Work Sans'; /* 'Maven Pro' 'Montserrat Alternates'  'Montserrat' 'Roboto Mono' 'Roboto' 'Work Sans'*/
+    font-size:medium;
+
+    display: inline-block;
+    text-align:left;
+}
+
+#infoEvento {
+    width: 90%;
+
+    margin-left: 5%;
+    margin-top: 2em;
+    
+    display: grid;
+	align-items: center;
+}
+
+#infoEvento  h1{
+    font-family: 'Maven Pro'; /* 'Maven Pro' 'Montserrat Alternates'  'Montserrat' 'Roboto Mono' 'Roboto' 'Work Sans'*/
+    font-size:2.5em;
+    font-weight: bolder;
+}
+
+
+#infoEvento h2{
+    color: #636363;
+    font-size:2em;
+    font-weight:400;
+}
+
+#infoEvento  h3{
+    font-size:1.5em;
+    font-weight: lighter;
+}
+
+#texto{
+    background-color: rgba(29, 216, 213, 0.2);
+    width: 90%;
+
+    margin: 5%;
+    padding: 1em;
+
+    font-size:1.3em;
+
+    box-sizing:border-box;
+
+}
+
+#botones{
+    width: 90%;
+
+    margin: 1%;
+
+    float: left;
+
+    display: flex;
+    justify-content: center;
+	align-items: center;
+
+    font-size:medium;
+    font-weight: bolder;
+}
+
+#enlaces{
+    text-decoration:none;
+    margin: 1%;
+    margin-right: 5%;
+    margin-left: 10%;
+}
+
+.imgBotones{
+	width: 90%;
+    max-width: 2.5em;
+	height: auto;
+	margin: 0.5em;
+}
+
+#botones>button{
+
+    background-color: #fff;
+    color:#000;
+
+    border: 1px solid #000;
+    border-radius: 4px;
+
+    width: auto;
+    
+    padding: 5px 15px;
+    margin-left: 10%;
+   
+    
+    cursor: pointer;
+
+    font-family: 'Roboto'; /* 'Maven Pro' 'Montserrat Alternates'  'Montserrat' 'Roboto Mono' 'Roboto' 'Work Sans'*/
+}
+
+#botones>button:hover{
+
+    border: 3px solid #fff;
+
+    box-shadow:       	0px 0px 10px  rgba(0, 0, 0, 0.7);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.7);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 10px  rgba(0, 0, 0, 0.7);  /* Firefox 3.5 - 3.6 */
+}
+
+
+
+/*-------PARTE DE LA DERECHA / imágenes-----*/
+
+.imagenes{
+    width: 30%;
+    min-width: 15em;
+
+    margin-left:2%;
+
+    display: inline-block;
+    text-align: center;
+
+}
+
+
+.contenedorImgEvento{
+    width: auto;
+    height: auto;
+
+    max-width: 35em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow:hidden; /*Desbordamiento*/
+}
+
+#imgEvento{
+    width: 100%;
+    height: 100%;
+}
+
+
+

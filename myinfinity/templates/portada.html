@@ -1,0 +1,20 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="StyleSheet" type="text/css" href="../css/portada.css" />
+{% endblock %}
+
+
+{% block article %}
+
+    {% for evento in eventos %}
+        <div class="publicacion">
+            <img class="imgPublicacion" src="{{ evento['imgPortada'] }}"/>
+            <p class="infoEvento">{{ evento['motivo'] }}</p>
+            <p class="nombreArtista">{{ evento['nombreArtista'] }}</p>
+            <a HREF={{ evento['urlEvento'] }}><div class="overlay"></div></a>
+        </div>
+    {% endfor %}
+    
+{% endblock %}

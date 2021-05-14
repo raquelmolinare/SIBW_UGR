@@ -1,0 +1,217 @@
+
+.fondo{
+    background-color:#fff;
+	display: grid;
+    justify-content: center;
+	align-items: center;
+
+    min-height: 35em;
+    
+}
+
+/*-------------------------------------------------*/
+/*--------------LOGIN----------------------*/
+
+#login{
+	background-color: #fff;
+
+    width: 20em;
+    height: 28em;
+
+    display:grid;
+    justify-content: center;
+	align-items: center;
+
+	box-shadow: 7px 7px 15px #686767;
+    border-radius: 8px;
+
+
+	/*Horizontal Vertical Difuminado*/
+	box-shadow:       	0px 0px 30px  #686767;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 30px  #686767;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 30px  #686767;  /* Firefox 3.5 - 3.6 */
+}
+
+#contenedorlogin{
+    padding: 1em;
+
+    display:grid;
+    justify-content: center;
+	align-items: center;
+}
+
+/*---------Boton close-----------*/
+#closelogin{
+    background-color:rgba(0, 0, 0, 0.3);
+    background-image: url("../img/return.png");
+    background-size: 1em;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 2em;
+    height: 2em;
+    padding-left: 1em;
+
+    border-radius: 4px;
+    cursor: pointer;
+
+    border: none;
+
+    outline: none;
+    float:right;
+}
+
+#logotipologin{
+    height: 8em;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+#logologin{
+	width: 15em;
+	height: 5em;
+
+	overflow:hidden; /*Desbordamiento*/
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#imgLogo{
+	width: 2.5em;
+	height: auto;
+}
+
+
+/*---------Formulario-----------*/
+
+.formulariologin{
+    background-color:#fff;
+    width: 90%;
+
+    margin: auto;
+    margin-top: 10%;    
+    padding: 2%;
+
+    position:relative;
+
+    border-radius:10px;
+
+    font-family: 'Roboto'; /* 'Maven Pro' 'Montserrat Alternates'  'Montserrat' 'Roboto Mono' 'Roboto' 'Work Sans'*/
+    font-size:small;
+
+}
+
+.formulariologin>label{
+    padding-left: 0.3em;
+}
+
+/*-----------Inputs----------------*/
+.formulariologin>input{
+    background-color: rgba(220, 220, 220,0.5);
+    width: 100%;
+
+    padding: 6px 12px;
+    margin: 3px;
+    margin-bottom: 1.6em;
+
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 4px;
+
+    outline: none;
+
+    font-weight: lighter;
+    font-family: 'Roboto'; /* 'Maven Pro' 'Montserrat Alternates'  'Montserrat' 'Roboto Mono' 'Roboto' 'Work Sans'*/
+
+}
+
+.formulariologin>input:focus{
+    border:2px solid #555;
+}
+
+/*-----------Boton de inicio sesion----------------*/
+.formulariologin .signin {
+
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+
+    border: none;
+    
+    width: 100%;
+    
+    padding: 5px 20px;
+    margin: 8px 0px;    
+   
+    font-weight: normal;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.formulariologin .signin:hover {
+    /*background-color: rgb(89, 199, 193);*/
+    background-color: rgba(255, 255, 255, 0.87);
+    color: #000;
+
+    box-shadow:       	0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 10px  rgba(0, 17, 255, 0.6); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Firefox 3.5 - 3.6 */
+}
+
+
+/*-------------------------------------------------*/
+/*--------------SIGNUP----------------------*/
+
+#signup{
+	background-color: #fff;
+
+    width: 20em;
+    height: auto;
+
+    display:grid;
+    justify-content: center;
+	align-items: center;
+
+	box-shadow: 7px 7px 15px #686767;
+    border-radius: 8px;
+
+
+	/*Horizontal Vertical Difuminado*/
+	box-shadow:       	0px 0px 30px  #686767;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 30px  #686767;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 30px  #686767;  /* Firefox 3.5 - 3.6 */
+}
+
+
+/*-----------Boton de registro----------------*/
+.formulariologin .registro {
+
+    background-color: rgba(0, 17, 255, 0.7);
+    color: #fff;
+
+    border: none;
+    
+    width: 100%;
+    
+    padding: 5px 20px;
+    margin: 8px 0px;    
+   
+    font-weight: normal;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.formulariologin .registro:hover {
+    /*background-color: rgb(89, 199, 193);*/
+    background-color: rgba(255, 255, 255, 0.87);
+    color: #000;
+
+    box-shadow:       	0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 10px  rgba(0, 17, 255, 0.6); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Firefox 3.5 - 3.6 */
+}

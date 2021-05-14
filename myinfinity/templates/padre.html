@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Codificación, autor, descripción, compatibilidad, icono, título, estilos..-->
+        <title> MyInfinity. </title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Raquel M.R">
+
+        {% block links %}
+            {% block estilos %}
+                <link rel="StyleSheet" type="text/css" href="../css/comun.css" />
+            {% endblock %}
+        {% endblock %}
+        
+		<!--El siguiente link es para poner el icono de la web en la pestaña-->
+		<link rel="icon" type="image/png" href="../img/logoF.png" />
+    </head>
+
+    <!--Cuerpo de toda la página-->
+    <body class="fondo">
+
+        {% block body%} 
+
+        <div id="contenedorCabecera">
+            <!--Cabecera-->
+            <header>
+                <!--logo y titulo de la pagina-->
+                <div id="contenedorLogoTitulo">
+                    <!--Logotipo-->
+                    <div id="contenedorLogo">
+                    </div>
+                    
+                    <!--Nombre de la pagina-->
+                    <h1 id="nombre">M y I n f i n i t y .</h1>
+                </div>
+
+                <!--Menu-->
+                <div id="contenedorMenu">
+                    <ul id="menu">
+                        <li><a HREF="http://localhost/">Inicio</a></li>
+                        <li><a href="#">Musica</a></li>
+                        <li><a href="#">Teatro</a></li>
+                        <li><a href="#">Danza</a></li>
+                        <li><a href="#">Festivales</a></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+
+        <div id="contenedorPrincipal">
+
+            {% block principal %} 
+
+                <!--Zona de elementos auxiliares-->
+                <aside>
+                    {% block aside %}
+                        <!--Buscador-->
+                        <!--
+                        <div class="buscador">
+                            <input type="text" placeholder="Buscar..." />
+                            <button type="button">Find!</button>
+                        </div>
+                        -->
+                        
+                        <!--Apartado RadarCovid-->
+                        <!--<a HREF="https://radarcovid.gob.es/home"><div id="infoCovid"><img id="imginfoCovid"src="../img/appRadarCovid.png"/></div></a>-->
+
+                        {% if usuario['tipo'] == 'anonimo' %}
+                            <!--No está logeado o registrado-->
+                            <form  class="formulariologin" action="login.php" method="post">
+                                <input id="botonlogin" type="submit" value="Iniciar Sesion"/>
+                            </form>
+                        {% else %}
+                            <!--Si está logeado-->
+                            <div class="infoUsuario" id="infoU">
+                                <div id="contenedorImgUser"><p><img id="imgUser" src="../img/profile.jpg"></div>
+                                <h1 id="nusuario">{{ usuario['nick'] }}</h1>
+                                <div id="tipoudiv"><h2>{{ usuario['tipo'] }}</h2></div>
+                                <a HREF="/cuenta.php"><button type="button" id="" >Perfil</button></a>
+                            </div>
+                            <form  class="formulariologin" action="/logout.php" method="post">
+                                <input id="botonlogout" type="submit" name="logout" value="Cerrar Sesion"/>
+                            </form>
+                        {% endif %}
+ 
+                    {% endblock %}
+                </aside>
+               
+                <!--Zona principal-->
+                <article>
+                    {% block article %}
+                        <!--Contenido de la zona principal-->
+                    {% endblock %}
+                </article>
+                 
+
+            {% endblock %}
+        </div>
+
+        <!--Pie de pagina-->
+        <footer>
+            <div class="contenedorImgPie"><p>© 2021 MyInfinity, Inc.</p></div>
+            <div class="contenedorImgPie"><img id="imgPie" src="../img/logo.png" /> </div>
+            <div class="contenedorImgPie">
+                <img class="imgRRSS" src="../img/RRSS/facebook.png" />
+                <img class="imgRRSS"  src="../img/RRSS/instagram.png" />
+                <img class="imgRRSS"  src="../img/RRSS/twitter.png" />
+            </div>
+            
+        </footer>
+
+        {% endblock %}
+
+    </body>
+</html>

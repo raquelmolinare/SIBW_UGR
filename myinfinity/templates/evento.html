@@ -1,0 +1,110 @@
+{% extends "padre.html" %}
+
+{% block links %}
+    {% block estilos %}
+        {{parent()}}
+        <link rel="StyleSheet" type="text/css" href="../css/evento.css" />
+        <link rel="Stylesheet" type="text/css" href="../css/comentarios.css"/>
+    {% endblock %}
+
+    <!--Fichero js-->
+    <script type="text/javascript" src="../script/comentarios.js" defer></script>
+{% endblock %}
+
+
+{% block principal %}
+    {{parent()}}
+
+    <!--Panel de comentarios-->
+    <div id="panelComentarios">
+
+        {% for prohibida in prohibidas %}
+            <div class="prohibidas" id="{{ prohibida }}"></div>
+        {% endfor %}
+
+            <!--Boton para cerrar panel-->
+        <button type="button"  id="closeComentarios" ></button>
+
+        <div class="comentarios">
+
+            {% for comentario in comentarios %}
+                <div class="comentario">
+                    <div id="contenedorImgProfile"><img id="imgProfile" src="../img/profile.jpg"></div>
+                    <h1>{{ comentario['nombreAutor'] }}</h1>
+                    
+                    <div id="textoComentario">
+                        <p>{{ comentario['comentario'] }}</p>
+                    </div>
+                    <h2>{{ comentario['fecha'] }}</h2>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <!--Formulario-->
+        <form class="formulario">
+            <!--Etiqueta Nombre e input-->
+            <label for="nombreInput">Nombre</label><br>
+            <input type="text" id="nombreInput" name="nombreInput"><br>
+            <!--Etiqueta Email e input-->
+            <label for="emailInput">E-mail</label><br>
+            <input type="text" id="emailInput" name="emailInput"><br>
+            <!--Etiqueta Texto Comentario e input-->
+            <label for="comentarioInput">Comentario</label><br>
+            <textarea  id="comentarioInput" name="comentarioInput"></textarea>
+            <!--Boton enviar comentario-->
+            <button type="button" id="enviarComentario" >Enviar</button>
+        </form>
+        
+    </div>
+
+{% endblock %}
+
+{% block article %}
+    <div class="informacion">
+        
+        <!--Info del evento-->
+        <div id="infoEvento">
+            <h1>{{ evento['nombre'] }}</h1>
+            <h2>{{ evento['lugar'] }}</h2>
+            <h3>{{ evento['fecha'] }}</h3>
+        </div>
+
+        <div id="texto">
+            <p>{{ evento['descripcion'] }}</p>            
+        </div>
+
+        <div id="botones">
+
+            <div id="enlaces">
+                <p><a  style="text-decoration:none" HREF={{ evento['enlaceArtista'] }}>{{ evento['nombreArtista'] }}🔗</a>  Pagina oficial</p></a>
+            </div>
+
+            <a HREF={{ evento['instaArtista'] }}> <img class="imgBotones" src="../img/RRSS/instagram2.png" /></a>
+            <a HREF={{ evento['twArtista'] }}><img class="imgBotones"  src="../img/RRSS/twitter2.png" /></a>
+            <a HREF={{ urlImprimir}}><img class="imgBotones"  src="../img/print.png" /></a>
+
+            {% block botonComentarios %}
+                {% if usuario['tipo'] != 'anonimo' %}
+                    <!--Solo si está logeado puede poner comentarios-->
+                    <button type="button"  id="botonComentarios" >Comentarios</button>
+                {% endif %}
+               
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+    <!--Galería de imagenes del evento-->
+    <div class="imagenes">
+        {% for imagen in imagenes %}
+            <div class="contenedorImgEvento"><img id="imgEvento" src="{{ imagen }}"></div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Montserrat+Alternates:wght@300;500&family=Montserrat:wght@300;500&family=Roboto+Mono:wght@300;500&family=Roboto:wght@300;500&family=Work+Sans:wght@300;500&display=swap');
+
+/*Eliminar el margen y el relleno de todos los elementos HTML*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*-------------------------------------------------*/
+/*--------------CABECERA---------------------------*/
+
+#contenedorCabecera{
+	background-color:#000;
+	display: flex;
+}
+
+header{
+	background-color:#000;
+	box-shadow: 7px 7px 15px #686767;
+	/*margin: 1em;*/
+	width: 100%;
+
+	/*Horizontal Vertical Difuminado*/
+	box-shadow:       	0px 10px 20px  #686767;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 10px 20px  #686767;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 10px 20px  #686767;  /* Firefox 3.5 - 3.6 */
+}
+
+#contenedorLogoTitulo{
+	display:flex;
+	align-items: center;
+}
+
+#contenedorLogo{
+	overflow:hidden; /*Desbordamiento*/
+	background-image: url("../img/ecualizer.gif");
+	background-size: cover;
+	width: 10em;
+	height: 8em;
+	margin-left: auto;
+}
+
+#logotipo{
+	width: 100%;
+	height: 100%;
+}
+
+#nombre{
+	color: #fff;
+	margin-right: auto;
+	margin-left: -2%;
+	font-family: 'Maven Pro';
+}
+
+#contenedorMenu {
+	/*background: #08777b;*/
+	font-family: 'Work Sans';
+	font-size:medium;
+	clear: both;
+	display: grid;
+	/*border-top:0.05em solid rgba(255,2555,255, 1);*/
+}
+
+#menu {
+	list-style: none; /*Para que no tome el estilo de lista*/
+	padding-left: 20%;
+	text-align: center;
+}
+
+#menu li a {
+	color: #fff;
+	float: left;
+	width: 5em;
+	padding: 0.7%;
+	text-decoration: none;
+	border-bottom: 0.3em solid black;
+	/*border-left: 1px solid #FFF;
+	border-right: 1px solid  #FFF;
+	border-collapse: collapse;*/
+}
+
+
+#menu li a:hover{
+	color:#fff;
+	border-bottom: 0.1em solid #fff;
+	opacity: 0.9;
+}
+
+
+/*--------------CONTENEDOR PRINCIPAL--------------------------*/
+#contenedorPrincipal{
+	background-color:#000;
+	display: flex;
+}
+
+/*-------------------------------------------------*/
+/*--------------LATERAL--------------------------*/
+
+aside{
+	background-color:#f3f3f3;
+	float:left;
+    width:20%;
+
+	text-align: center;
+	padding-top: 2em;
+}
+
+.buscador{
+	margin: auto;
+	margin-top: 2em;
+	margin-bottom: 1em;
+
+	width: 80%;
+	height: auto;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.buscador>input[type=text], .buscador>button {
+  font: 0.9em 'Montserrat Alternates';
+}
+
+
+.buscador>input[type=text] {
+	padding:0.2em;
+	border:0.2em solid #bcbcbc;
+  }
+  
+.buscador>button {
+	padding:0.4em 0.2em;
+	background-color:#bcbcbc;
+	color:white;
+	border:none;
+}
+
+
+#infoCovid{
+	background-color:#d6d6d6;
+	border-radius: 10px;
+
+	margin: auto;
+
+	width: auto;
+	height: auto;
+
+	max-width: 80%;
+
+	padding: 0.5em;
+
+	display: grid;
+	align-items: center;
+	justify-content: center;
+}
+
+#imginfoCovid{
+	width: 50%;
+	height: auto;
+	margin: auto;
+}
+
+
+/*-------------------------------------------------*/
+/*--------------PIE DE PAGINA----------------------*/
+
+footer{
+	background-color:#ffffff;
+
+	clear: both; /*especifica si un elemento puede estar al lado de elementos flotantes. both indica que el elemento es movido hacia abajo para limpiar tanto elementos flotantes de la izquierda como de la derecha*/
+	
+	font-family: 'Maven Pro';
+	color: #474747;
+	font-weight: lighter;
+	font-size: 1em;
+
+	height: 12em;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-top: 0.1em solid #c8c8c8;
+}
+
+.contenedorImgPie{
+	width: 15em;
+	height: 5em;
+
+	margin-left: 3%;
+	margin-right: 3%;
+
+	overflow:hidden; /*Desbordamiento*/
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+#imgPie{
+	width: 2.5em;
+	height: auto;
+}
+
+
+.imgRRSS{
+	width: 2em;
+	height: auto;
+	margin: 4%;
+}
+
+
+/*---------INICIAR SESION Y REGISTRARSE-----------*/
+
+#botonlogin{
+
+	/*display: none;*/
+
+    background-color: rgba(0, 17, 255, 0.7);;
+    color: #fff;
+
+    border: none;
+    
+    width: 90%;
+    
+    padding: 5px 20px;
+	margin: 2%;
+   
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+#botonlogin:hover{
+    /*background-color: rgb(89, 199, 193);*/
+    background-color: rgba(255, 255, 255, 0.87);
+    color: #000;
+
+    box-shadow:       	0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 10px  rgba(0, 17, 255, 0.6); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Firefox 3.5 - 3.6 */
+}
+
+#botonlogout{
+
+	/*display: none;*/
+
+    background-color: rgba(0, 17, 255, 0.7);;
+    color: #fff;
+
+    border: none;
+    
+    width: 90%;
+    
+    padding: 5px 20px;
+	margin: 2%;
+   
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+#botonlogout:hover{
+    /*background-color: rgb(89, 199, 193);*/
+    background-color: rgba(255, 255, 255, 0.87);
+    color: #000;
+
+    box-shadow:       	0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 10px  rgba(0, 17, 255, 0.6); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Firefox 3.5 - 3.6 */
+}
+
+
+/*---------INICIAR SESION Y REGISTRARSE-----------*/
+
+#contenedorImgUser{
+
+    width: 20%;
+    height: auto;
+
+    border-radius: 100%;
+
+    float: left;
+
+    margin: 1%;
+    margin-left: 3%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow:hidden; /*Desbordamiento*/
+}
+
+#imgUser{
+    width: 100%;
+    height: auto;
+}
+
+.infoUsuario {
+	font-family: 'Work Sans';
+
+	/*background-color: #fff;*/
+
+	width: 90%;
+	height:auto;
+    
+	margin: 2%;
+	
+    border-radius: 8px;
+
+	display:block;
+    justify-content: center;
+    align-items: center;
+	text-align: center;
+	
+}
+
+.infoUsuario h1{
+    font-size:1.2em;
+	padding: 5px 20px;
+	padding-top: 5%;
+}
+
+.infoUsuario h2{
+	font-weight: normal;
+}
+
+
+.infoUsuario #tipoudiv{
+    font-size:0.6em;
+
+	background-color: rgba(0, 17, 255, 0.7);;
+    color: #fff;
+
+    border: none;
+    
+    width: 85%;
+    
+    padding: 5px 20px;
+   
+    border-radius: 4px;
+	font-weight: normal;
+
+	clear: both;
+}
