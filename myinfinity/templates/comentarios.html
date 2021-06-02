@@ -1,0 +1,55 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="Stylesheet" type="text/css" href="../css/listas.css"/>
+{% endblock %}
+
+
+{% block article %}
+
+    <div class="contenedor">
+        <form class="busqueda" action="/comentarios.php" method="post">
+            <input type="search" name="busquedamusica" placeholder="Autor, contenido...">
+            <input type="submit" value="Buscar" name="buscar">        
+        </form>
+    </div>
+
+  
+    <div class="contenedor">
+
+        {% for comentario in comentarios %}
+            <div class="comentario">
+                <div class="parte">
+                    <div>
+                        <div id="contenedorImgProfile"><img id="imgProfile" src="../img/profile.jpg"></div>
+                        <h1>{{ comentario['nombreAutor'] }}</h1>
+                    </div>
+                    <!--A la parte de edicion solo pueden acceder los que NO sean usaurio anonumos ni registrados-->
+                    {% if usuario['tipo'] != 'registrado' %}
+                        <div class="editar">
+                            <form  action="/evento.php" method="post">
+                                <input type="hidden" name="editarcomentario" value="{{ comentario['idComentario'] }}">
+                                <input id="botonEditar" type="image" src="../img/editar.png">
+                            </form>
+                            <form  action="/comentarios.php" method="post">
+                                <input type="hidden" name="eliminarcomentario" value="{{ comentario['idComentario'] }}">
+                                <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                            </form>
+                        </div>
+                    {% endif %}
+                </div>
+                <div id="textoComentario">
+                    <p>{{ comentario['comentario'] }}</p>
+                </div>
+                <div class="parte">
+                    <h2>{{ comentario['fecha'] }}</h2>
+                    {% if comentario['modificado'] == 1 %}
+                        <h2>Mensaje editado por el moderador</h2>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="Stylesheet" type="text/css" href="../css/listas.css"/>
+{% endblock %}
+
+
+{% block article %}
+
+    <div class="contenedor">
+        <form class="busqueda" action="/listaeventos.php" method="post">
+            <input type="search" name="busqueda" placeholder="Artista, contenido...">
+            <input type="submit" value="Buscar" name="buscar">        
+        </form>
+    </div>
+
+  
+    <div class="contenedor">
+
+        {% for evento in eventos %}
+
+            {% if evento['publicado'] == true  %}
+                <div class="evento">
+                    <div class="parte">
+                        <h1>{{ evento['nombre'] }}</h1>
+                        <div class="editar">
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="editarevento" value="{{ evento['id'] }}">
+                                <input id="botonEditar" type="image" src="../img/editar.png">
+                            </form>
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="eliminarevento" value="{{ evento['id'] }}">
+                                <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                            </form>
+                        </div>
+                    </div>
+                    <h2>{{ evento['motivo'] }}</h2>
+                    <h2>{{ evento['lugar'] }}</h2>
+                    <h3>{{ evento['fecha'] }}</h3>
+                    <div id="textoComentario">
+                        <p>{{ evento['descripcion'] }}</p>
+                    </div>
+                </div>
+
+            {% elseif  usuario['tipo'] == 'gestor'%}
+
+                <div class="evento">
+                    <div class="parte">
+                        <h1>{{ evento['nombre'] }}</h1>
+                        <div class="editar">
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="editarevento" value="{{ evento['id'] }}">
+                                <input id="botonEditar" type="image" src="../img/editar.png">
+                            </form>
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="eliminarevento" value="{{ evento['id'] }}">
+                                <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                            </form>
+                        </div>
+                    </div>
+                    <h2>{{ evento['motivo'] }}</h2>
+                    <h2>{{ evento['lugar'] }}</h2>
+                    <h3>{{ evento['fecha'] }}</h3>
+                    <div id="textoComentario">
+                        <p>{{ evento['descripcion'] }}</p>
+                    </div>
+                </div>
+
+            {% endif %}
+            
+        {% endfor %}
+
+    </div>
+{% endblock %}

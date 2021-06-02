@@ -37,11 +37,12 @@
                 <!--Menu-->
                 <div id="contenedorMenu">
                     <ul id="menu">
-                        <li><a HREF="http://localhost/">Inicio</a></li>
-                        <li><a href="#">Musica</a></li>
-                        <li><a href="#">Teatro</a></li>
-                        <li><a href="#">Danza</a></li>
-                        <li><a href="#">Festivales</a></li>
+                        <li><a HREF="/">Inicio</a></li>
+                        <li><a href="/?et=rock">Rock</a></li>
+                        <li><a href="/?et=indie">Indie</a></li>
+                        <li><a href="/?et=pop">Pop</a></li>
+                        <li><a href="/?et=español">Nacional</a></li>
+                        <li><a href="/?et=internacional">Internacional</a></li>
                     </ul>
                 </div>
             </header>
@@ -67,20 +68,62 @@
 
                         {% if usuario['tipo'] == 'anonimo' %}
                             <!--No está logeado o registrado-->
-                            <form  class="formulariologin" action="login.php" method="post">
+                            <form  class="formulariologin" action="/login.php" method="post">
                                 <input id="botonlogin" type="submit" value="Iniciar Sesion"/>
                             </form>
                         {% else %}
                             <!--Si está logeado-->
-                            <div class="infoUsuario" id="infoU">
-                                <div id="contenedorImgUser"><p><img id="imgUser" src="../img/profile.jpg"></div>
-                                <h1 id="nusuario">{{ usuario['nick'] }}</h1>
-                                <div id="tipoudiv"><h2>{{ usuario['tipo'] }}</h2></div>
-                                <a HREF="/cuenta.php"><button type="button" id="" >Perfil</button></a>
+                            <div class="infoUsuario">
+                                <div id="imgPerf" >
+                                    <img id="imgUser" src="../img/profile.jpg">
+                                </div>
+                                <div id="infoUser">
+                                    <h1 id="nusuario">{{ usuario['nick'] }}</h1>
+                                    <div id="tipoudiv"><h2>{{ usuario['tipo'] }}</h2></div>
+                                </div>
                             </div>
+                            <div class="accionesUsuario">
+                                <form  action="/cuenta.php">
+                                    <input id="botonEliminar" type="submit" value="Mi Perfil"/>
+                                </form>
+                            </div>
+
+                            {% if usuario['tipo'] == 'gestor' or usuario['tipo'] == 'superusuario' %}
+                            <div class="accionesUsuario">
+                                <form action="/nuevoevento.php">
+                                    <input id="botonEliminar" type="submit" value="Añadir Evento"/>
+                                </form>
+                            </div>
+                            {% endif %}
+                           
+                            {% if usuario['tipo'] != 'registrado' %}
+                            <div class="accionesUsuario">
+                                <form action="/comentarios.php">
+                                    <input id="botonEliminar" type="submit" value="Lista Comentarios"/>
+                                </form>
+                            </div>
+                            {% endif %}
+
+                            {% if usuario['tipo'] == 'gestor' or usuario['tipo'] == 'superusuario' %}
+                            <div class="accionesUsuario">
+                                <form action="/listaeventos.php">
+                                    <input id="botonEliminar" type="submit" value="Lista Eventos"/>
+                                </form>
+                            </div>
+                            {% endif %}
+
+                            {% if usuario['tipo'] == 'superusuario' %}
+                            <div class="accionesUsuario">
+                                <form action="/listausuarios.php">
+                                    <input id="botonEliminar" type="submit" value="Lista Usuarios"/>
+                                </form>
+                            </div>
+                            {% endif %}
+
                             <form  class="formulariologin" action="/logout.php" method="post">
                                 <input id="botonlogout" type="submit" name="logout" value="Cerrar Sesion"/>
                             </form>
+
                         {% endif %}
  
                     {% endblock %}

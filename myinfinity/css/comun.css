@@ -70,7 +70,7 @@ header{
 #menu li a {
 	color: #fff;
 	float: left;
-	width: 5em;
+	width: 7em;
 	padding: 0.7%;
 	text-decoration: none;
 	border-bottom: 0.3em solid black;
@@ -103,6 +103,8 @@ aside{
 
 	text-align: center;
 	padding-top: 2em;
+
+	font-family: 'Roboto'; /* 'Maven Pro' 'Montserrat Alternates'  'Montserrat' 'Roboto Mono' 'Roboto' 'Work Sans'*/
 }
 
 .buscador{
@@ -275,48 +277,49 @@ footer{
 
 /*---------INICIAR SESION Y REGISTRARSE-----------*/
 
-#contenedorImgUser{
 
-    width: 20%;
-    height: auto;
+.infoUsuario {
+	font-family: 'Work Sans';
 
-    border-radius: 100%;
+	background-color: #fff;
 
-    float: left;
+	width: 70%;
+	height:auto;
+    	
+    border-radius: 8px;
+	margin:auto;
+	padding: 1em;
 
-    margin: 1%;
-    margin-left: 3%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    overflow:hidden; /*Desbordamiento*/
+	display: flex;
+	justify-content: center;
+	align-content: center;
 }
 
 #imgUser{
     width: 100%;
     height: auto;
+
+	border-radius: 100%;
 }
 
-.infoUsuario {
-	font-family: 'Work Sans';
+#imgPerf{
+    width: 25%;
+    height: auto;
 
-	/*background-color: #fff;*/
+	float:left;
 
-	width: 90%;
-	height:auto;
-    
-	margin: 2%;
-	
-    border-radius: 8px;
-
-	display:block;
-    justify-content: center;
-    align-items: center;
-	text-align: center;
-	
+	border-radius: 100%;
+	overflow: hidden;
 }
+
+
+#infoUser {
+	width: 75%;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
 
 .infoUsuario h1{
     font-size:1.2em;
@@ -336,13 +339,27 @@ footer{
     color: #fff;
 
     border: none;
-    
-    width: 85%;
-    
+
     padding: 5px 20px;
    
     border-radius: 4px;
 	font-weight: normal;
+}
 
-	clear: both;
+
+.accionesUsuario #botonEliminar{
+	font-family: 'Roboto'; /* 'Maven Pro' 'Montserrat Alternates'  'Montserrat' 'Roboto Mono' 'Roboto' 'Work Sans'*/
+	
+    background-color: #fff;
+    width:77%;
+    margin-top:1em;
+    margin-bottom:1em;
+
+	padding: 5px 20px;
+   
+    border-radius: 4px;
+    cursor: pointer;
+
+    border: none;
+    outline: none;
 }

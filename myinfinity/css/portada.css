@@ -15,20 +15,98 @@ article{
 	float: left;
     width:80%;
 
-	
-	display:grid;
-	/*grid-template-columns: repeat(3,33%);*/
-	/*grid-template-columns: minmax(1fr,3fr);*/
-	grid-template-columns: repeat(auto-fill, minmax(300px, 405px)); /*Para crear columnas que sean variables según el espacio*/
-	justify-content: center;
-	align-items: center;
-	
-	/*display: flex;
-	justify-content: center;
-	align-items: center;*/
 
 	font-family: 'Work Sans';
 }
+
+
+.cuadricula{
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 405px)); /*Para crear columnas que sean variables según el espacio*/
+	justify-content: center;
+	align-items: center;
+
+	font-family: 'Work Sans';
+}
+
+
+.contenedorBusqueda{
+	background-color: #0000;
+	margin: auto;
+}
+
+
+
+.busqueda {
+
+	background-color: #fff;
+    
+	margin-top: 5em;
+	margin-left: 20%;
+
+	width: 60%;
+	height: 2em;
+
+	padding:0.5em;
+
+	border:none;
+    border-radius: 20px;
+    
+    
+	box-shadow:       	0px 0px 10px  rgba(0, 0, 0, 0.5);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.5); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 10px  rgba(0, 0, 0, 0.5);  /* Firefox 3.5 - 3.6 */
+}
+
+.busqueda:focus{
+    border:1px solid #999999;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+	outline: none;
+
+	box-shadow:       	0px 0px 20px  rgba(0, 0, 0, 0.5);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 20px  rgba(0, 0, 0, 0.5); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 20px  rgba(0, 0, 0, 0.5);  /* Firefox 3.5 - 3.6 */
+}
+
+.busqueda:hover{
+	
+	box-shadow:       	0px 0px 30px  rgba(0, 0, 0, 0.5);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 30px  rgba(0, 0, 0, 0.5); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 30px  rgba(0, 0, 0, 0.5);  /* Firefox 3.5 - 3.6 */
+}
+
+
+  
+
+.lista ul{
+	margin: auto;
+	width: 60%;
+	background-color: #f9f8f2;
+	border-radius: 20px;
+	list-style: none;
+}
+
+.lista li{
+	
+	padding: 2%;
+}
+
+.lista li:hover{
+	background-color:rgba(29, 216, 213, 0.2);
+	padding: 2%;
+}
+
+.enlace{
+	text-decoration:none;
+	color: #000;
+}
+
+.reemplazo{
+	background-color: #F1C75E;
+}
+
 
 .publicacion{
 	background-color: #fff;
@@ -85,4 +163,101 @@ article{
 	position: absolute;
 	top: 88%;
 	left: 3%;
+}
+
+/*-------- ACCIONES USUARIO -----------*/
+
+
+.editar{
+	width:22em;
+	height:3em;
+	position: absolute;
+	z-index: 2;
+	padding-top:2%;
+	overflow:hidden; /*Desbordamiento*/
+}
+
+.publicado{
+	float: left;
+	background-color: #179C72;
+	padding: 1%;
+	color:#FFF;
+}
+
+
+.nopublicado{
+	float: left;
+	background-color: #9C1717;
+	padding: 1%;
+	color:#FFF;
+}
+
+
+.editar #infoPublicado{
+    background-color: #fff;
+    width: 2.3em;
+    height: 90%;
+	margin-right:2%;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+
+    float: right;
+
+    display: grid;
+    align-content: center;
+
+    outline: none;
+
+}
+
+.editar #botonEditar{
+    background-color: #fff;
+    width: 2.3em;
+    height: 90%;
+	margin-right:2%;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+
+    float: right;
+
+    display: grid;
+    align-content: center;
+
+    outline: none;
+
+}
+
+.editar #botonEliminar{
+    background-color: #fff;
+	width: 2.3em;
+    height: 90%;
+    
+    margin-right:2%;
+   
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+
+    float: right;
+
+    display: grid;
+    align-content: center;
+
+    outline: none;
+}
+
+.editar #botonEditar:hover {
+	width: 3em;
+    box-shadow:       	0px 0px 50px  rgba(0, 0, 255, 1.0);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 50px  rgba(0, 0, 255, 1.0); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 50px  rgba(0, 0, 255, 1.0);  /* Firefox 3.5 - 3.6 */
+}
+
+.editar #botonEliminar:hover {
+	width: 3em;
+    box-shadow:       	0px 0px 50px  rgba(255, 0, 0 , 1.0);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 50px  rgba(255, 0, 0 , 1.0); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 50px  rgba(255, 0, 0 , 1.0);  /* Firefox 3.5 - 3.6 */
 }

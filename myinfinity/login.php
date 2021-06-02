@@ -18,10 +18,10 @@
             //Se guarda en la sesion el nick del usuario que se ha logeado
             $_SESSION['nick'] = $nick;
 
-            header("Location: index.php");
+            header("Location: /index.php");
         }
         else{
-            header("Location: login.php");
+            header("Location: /login.php");
         }
         exit();
     }

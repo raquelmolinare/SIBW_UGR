@@ -1,0 +1,251 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="StyleSheet" type="text/css" href="../css/edicion.css" />
+{% endblock %}
+
+
+{% block article %}
+
+    <div class="contenido">
+        <!--Formulario edidicon-->
+
+        <form  action="/editareventos.php" method="post">
+            <input id="botonvolver" type="submit" name="volver" value="Volver">
+        </form>
+
+        <div class="row">
+
+            <div class="col1">
+                <form class="editform" action="/editareventos.php" method="POST">
+
+                    <div class="fila">
+                        <div class="formulario">
+                            <!--Etiqueta Nombre input-->
+                            <label for="nombreInput">Nombre</label><br>
+                            <input type="text" id="nombreInput" name="nuevonombre" value="{{ evento['nombre'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarNombre" value="Guardar" />
+                        </div>
+                    </div>
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Lugar input-->
+                            <label for="lugarInput">Lugar</label><br>
+                            <input type="text" id="lugarinput" name="nuevolugar" value="{{ evento['lugar'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarLugar" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Fecha input-->
+                            <label for="fechaInput">Fecha</label><br>
+                            <input type="text" id="fechainput" name="nuevafecha" value="{{ evento['fecha'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarFecha" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Motivo input-->
+                            <label for="motivoInput">Motivo</label><br>
+                            <input type="text" id="motivoinput" name="nuevomotivo" value="{{ evento['motivo'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarMotivo" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Descripcion input-->
+                            <label for="descripcionInput">Descripcion</label><br>
+                            <textarea  id="descripcioninput" name="nuevadescripcion" >{{ evento['descripcion'] }}</textarea>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarDescripcion" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Enlace Artista input-->
+                            <label for="enlaceArtistaInput">Enlace Artista</label><br>
+                            <input type="text" id="enlaceArtistainput" name="nuevoenlaceArtista" value="{{ evento['enlaceArtista'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarEnlaceArtista" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Nombre Artista input-->
+                            <label for="nombreArtista">Nombre Artista</label><br>
+                            <input type="text" id="nombreArtista" name="nuevonombreArtista" value="{{ evento['nombreArtista'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarnombreArtista" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Instagram Artista input-->
+                            <label for="instaArtista">Instagram Artista</label><br>
+                            <input type="text" id="instaArtista" name="nuevoinstaArtista" value="{{ evento['instaArtista'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardarinstaArtista" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+                    <div class="fila">
+                        <div  class="formulario">
+                            <!--Etiqueta Twitter Artista input-->
+                            <label for="twArtista">Twitter Artista</label><br>
+                            <input type="text" id="twArtista" name="nuevotwArtista" value="{{ evento['twArtista'] }}"><br>
+                        </div>
+                        <div class="botones">
+                            <!--Boton Cancelar-->
+                            <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                            <!--Boton Guardar-->
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="guardaredicion" type="submit" name="guardartwArtista" value="Guardar" />
+                        
+                        </div>
+                    </div>
+        
+                </form>
+            </div>
+
+            <div class="col2">
+
+                {% if usuario['tipo'] == 'gestor' %}
+                    <div class="publicar">
+                        <!--Manejar el estado publicado o no publicado-->
+                        <label >Estado</label><br>
+                        {% if evento['publicado'] == true  %}
+                            <h1>PUBLICADO</h1>
+                        {% else %}
+                            <h1>NO PUBLICADO</h1>
+                        {% endif %}                      
+                        <form action="/editareventos.php" method="post">
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            {% if evento['publicado'] == false  %}
+                                <input id="publicarevento" type="submit" name="publicarevento" value="Publicar Evento" />
+                            {% else %}
+                                <input id="ocultarevento" type="submit" name="ocultarevento" value="Ocultar Evento" />
+                            {% endif %}
+                        </form>
+                    </div>
+                {% endif %}
+
+                <div class="imagenes">
+                    <!--Imagenes-->
+                    <label >Imagenes</label><br>
+                    {% for imagen in imagenes %}
+                        <div class="imagen">
+                            <div class="info">
+                                <h1 id="src">Src:<br> {{ imagen['src'] }}</h1>
+                                <h1 id="tipo">Tipo: {{ imagen['tipo'] }}</h1>
+                            </div>
+                            <form  action="/editareventos.php" method="post">
+                                <input type="hidden" name="eliminarimagen" value="{{ imagen['id'] }}">
+                                <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                                <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                            </form>
+                            <!--<input id="eliminar" type="submit" name="eliminar" value="Eliminar" />-->
+                        </div>
+                    {% endfor %}
+                    <div class="nuevaImagen">
+                        <label>Nueva imagen</label><br>
+                        <p>Src:<br></p>
+                        <form  class="nueva" action="/editareventos.php" method="post">
+                            <input type="text" id="nuevaImagen" name="nuevaImagen" value=""><br>
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="addPortada" type="submit" name="addPortada" value="Añadir Portada" />
+                            <input id="addGaleria" type="submit" name="addGaleria" value="Añadir Galeria" />
+                        </form>
+                    </div>
+                </div>
+                <div class="etiquetas">
+                    <!--Etiquetas-->
+                    <label >Etiquetas</label><br>
+                    {% for etiqueta in etiquetas %}
+                        <div class="etiqueta">
+                            <div class="info">
+                                <h1 id="etiqueta">{{ etiqueta['etiqueta'] }}</h1>
+                            </div>
+                            <form  action="/editareventos.php" method="post">
+                                <input type="hidden" name="eliminaretiqueta" value="{{ etiqueta['id'] }}">
+                                <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                                <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                            </form>
+                            <!--<input id="eliminar" type="submit" name="eliminar" value="Eliminar" />-->
+                        </div>
+                    {% endfor %}
+                    <div class="nuevaImagen">
+                        <label>Nueva Etiqueta</label><br>
+                        <form  class="nueva" action="/editareventos.php" method="post">
+                            <input type="text" id="nuevaEtiqueta" name="nuevaEtiqueta" value=""><br>
+                            <input type="hidden" name="idevento" value="{{ evento['id'] }}">
+                            <input id="addEtiqueta" type="submit" name="addEtiqueta" value="Añadir Etiqueta" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+{% endblock %}

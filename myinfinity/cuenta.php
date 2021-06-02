@@ -22,7 +22,7 @@
         $usuario['email']= $user['email'];
     }
     else{
-        header("Location: login.php");
+        header("Location: /login.php");
     }
 
     //2. Gestion de la edicion de la cuenta
@@ -32,88 +32,86 @@
     else{ //Si no lo está
         $edicon = 0;
     }
+
     
+    //Gestion de la edicion
+    if(isset ($_GET['err'])){ //Si está definida la variable err
+        $error = $_GET['err'];
+    }
+    else{ //Si no lo está
+        $error = -1;
+    }
+
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-        $nuevonick= $_POST['nuevonick'];
-        $nuevonombre = $_POST['nuevonombre'];
-        $nuevosapellidos = $_POST['nuevoapellidos'];
-        $nuevoemail = $_POST['nuevoemail'];
-        $nuevacontraseña1 = $_POST['contraseña1'];
-        $nuevacontraseña2 = $_POST['contraseña2'];
-
-        if($nuevacontraseña1 === $nuevacontraseña2){
-
-            if( editUser($nuevonick,$nuevacontraseña1,$nuevonombre,$nuevosapellidos,$nuevoemail)){
-                header("Location: /cuenta.php");
+        if(isset($_POST["guardarNick"])){
+            $nicknuevo = $_POST['nuevonick'];
+            if( editUserNick($nicknuevo, $usuario['nick']) ){
+                $_SESSION['nick'] = $nicknuevo;
+                header("Location: /cuenta.php/?edicion&err=0");
             }
             else{
-                header("Location: /cuenta.php/?edicion");
+                header("Location: /cuenta.php/?edicion&err=1");
+            }
+            
+        }
+    
+        if(isset($_POST["guardarNombre"])){
+            $nombre = $_POST['nuevonombre'];
+            if( editUserNombre($nombre,$usuario['nick']) ){
+                header("Location: /cuenta.php/?edicion&err=0");
+            }
+            else{
+                header("Location: /cuenta.php/?edicion&err=1");
             }
         }
-        else{
+
+        if(isset($_POST["guardarApellidos"])){
+            $apellidos = $_POST['nuevosapellidos'];
+            if( editUserApellidos($apellidos,$usuario['nick']) ){
+                header("Location: /cuenta.php/?edicion&err=0");
+            }
+            else{
+                header("Location: /cuenta.php/?edicion&err=1");
+            }
+        }
+
+        if(isset($_POST["guardarEmail"])) {
+            $email = $_POST['nuevoemail'];
+            if( editUserEmail($email,$usuario['nick']) ){
+                header("Location: /cuenta.php/?edicion&err=0");
+            }
+            else{
+                header("Location: /cuenta.php/?edicion&err=1");
+            }
+        }
+
+        if(isset($_POST["guardarContraseña"])) {
+            $nuevacontraseña1 = $_POST['contraseña1'];
+            $nuevacontraseña2 = $_POST['contraseña2'];
+            if($nuevacontraseña1 === $nuevacontraseña2){
+                if( changePassword($nuevacontraseña1,$usuario['nick']) ){
+                    header("Location: /cuenta.php/?edicion&err=0");
+                }
+                else{
+                    header("Location: /cuenta.php/?edicion&err=1");
+                }
+            }
+            else{
+                header("Location: /cuenta.php/?edicion&err=1");
+            }
+        }
+
+        if(isset($_POST["volver"])) {
+            header("Location: /cuenta.php");
+        }
+
+        if(isset($_POST["cancelar"])) {
             header("Location: /cuenta.php/?edicion");
         }
-       
-        /*
-
-        //Cambio de contraseña
-        if($nuevacontraseña != ""){
-            if(changePassword($nuevacontraseña,$user['nick']) ){
-                header("Location: cuenta.php");
-            }
-            else{
-                recuperarUsuario($user['nick'],$user['passw'],$user['nombre'],$user['apellidos'],$user['email']);
-                header("Location: cuenta.php/?edicion=1");
-            }
-        }
-
-        //Cambio de Nombre
-        if($nuevonombre!= ""){
-            if( editUserNombre($nuevonombre,$user['nick']) ){
-                header("Location: cuenta.php");
-            }
-            else{
-                recuperarUsuario($user['nick'],$user['passw'],$user['nombre'],$user['apellidos'],$user['email']);
-                header("Location: cuenta.php/?edicion=2");
-            }
-        }
-
-        //Cambio de apellidos
-        if($nuevosapellidos!= ""){
-            if( editUserApellidos($nuevosapellidos,$user['nick']) ){
-                header("Location: cuenta.php");
-            }
-            else{
-                recuperarUsuario($user['nick'],$user['passw'],$user['nombre'],$user['apellidos'],$user['email']);
-                header("Location: cuenta.php/?edicion=3");
-            }
-        }
-
-        //Cambio de email
-        if($nuevoemail!= ""){
-            if( editUserEmail($nuevoemail,$user['nick']) ){
-                header("Location: cuenta.php");
-            }
-            else{
-                recuperarUsuario($user['nick'],$user['passw'],$user['nombre'],$user['apellidos'],$user['email']);
-                header("Location: cuenta.php/?edicion=4");
-            }
-        }
-
-        //Cambio de nick lo ultimo
-        if($nuevonick!= ""){
-            if( editUserNick($nuevonick) ){
-                header("Location: cuenta.php");
-            }
-            else{
-                recuperarUsuario($user['nick'],$user['passw'],$user['nombre'],$user['apellidos'],$user['email']);
-                header("Location: cuenta.php/?edicion=5");
-            }
-        }*/
 
         exit();
     }
 
-    echo $twig->render('cuenta.html', ['eventos' => $eventos, 'usuario' => $usuario, 'edicion' => $edicion]);
+    echo $twig->render('cuenta.html', ['usuario' => $usuario, 'edicion' => $edicion, 'error' => $error]);
 ?>

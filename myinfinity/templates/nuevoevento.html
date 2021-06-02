@@ -1,0 +1,52 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="StyleSheet" type="text/css" href="../css/edicion.css" />
+{% endblock %}
+
+
+{% block article %}
+
+    <div class="contenido">
+        <!--Formulario edidicon-->
+        <div class="row">
+
+                <form class="formulario" action="/nuevoevento.php" method="post">
+                    <!--Etiqueta Nombre e input-->
+                    <label for="nombreInput">Nombre</label><br>
+                    <input type="text" id="nombreInput" name="nuevonombre"><br>
+                    <!--Etiqueta Lugar e input-->
+                    <label for="lugarInput">Lugar</label><br>
+                    <input type="text" id="lugarInput" name="nuevolugar"><br>
+                    <!--Etiqueta Fecha input-->
+                    <label for="fechaInput">Fecha</label><br>
+                    <input type="text" id="fechainput" name="nuevafecha"><br>
+                    <!--Etiqueta Motivo input-->
+                    <label for="motivoInput">Motivo</label><br>
+                    <input type="text" id="motivoinput" name="nuevomotivo"><br>
+                    <!--Etiqueta Descripcion input-->
+                    <label for="descripcionInput">Descripcion</label><br>
+                    <textarea  id="descripcioninput" name="nuevadescripcion" ></textarea>
+                    <!--Etiqueta Enlace Artista input-->
+                    <label for="enlaceArtistaInput">Enlace Artista</label><br>
+                    <input type="text" id="enlaceArtistainput" name="nuevoenlaceArtista"><br>
+                    <!--Etiqueta Nombre Artista input-->
+                    <label for="nombreArtista">Nombre Artista</label><br>
+                    <input type="text" id="nombreArtista" name="nuevonombreArtista"><br>
+                    <!--Etiqueta Instagram Artista input-->
+                    <label for="instaArtista">Instagram Artista</label><br>
+                    <input type="text" id="instaArtista" name="nuevoinstaArtista"><br>
+                    <!--Etiqueta Twitter Artista input-->
+                    <label for="twArtista">Twitter Artista</label><br>
+                    <input type="text" id="twArtista" name="nuevotwArtista"><br>
+                
+                    <input id="addEvento" type="submit" name="nuevoevento" value="Añadir Evento">
+                </form>                    
+        
+        </div>
+        
+    </div>
+    
+
+{% endblock %}

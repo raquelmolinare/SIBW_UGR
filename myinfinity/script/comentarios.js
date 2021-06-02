@@ -104,7 +104,7 @@ function addComentario() {
     if( !hayCamposVacios(nombre,email,texto) && validarEmail(email) ){
        
         //2.1 Crear Comentario
-        crearComentario(nombre,texto,fecha);
+        //crearComentario(nombre,texto,fecha);
 
         //2.2 Limpiamos campos
         document.getElementById("nombreInput").value = "";

@@ -1,20 +1,87 @@
 {% extends "padre.html" %}
 
-{% block estilos %}
-    {{parent()}}
-    <link rel="StyleSheet" type="text/css" href="../css/portada.css" />
+{% block links %}
+    {% block estilos %}
+        {{parent()}}
+        <link rel="StyleSheet" type="text/css" href="../css/portada.css" />
+    {% endblock %}
+
+    <!--Fichero js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../script/busqueda.js" defer></script>
 {% endblock %}
 
 
 {% block article %}
 
-    {% for evento in eventos %}
-        <div class="publicacion">
-            <img class="imgPublicacion" src="{{ evento['imgPortada'] }}"/>
-            <p class="infoEvento">{{ evento['motivo'] }}</p>
-            <p class="nombreArtista">{{ evento['nombreArtista'] }}</p>
-            <a HREF={{ evento['urlEvento'] }}><div class="overlay"></div></a>
+    <div class="contenedorBusqueda">
+        
+        <form autocomplete="off">
+            <input class="busqueda" type="text" id="eventobusqueda" name="busqueda" placeholder="Búsqueda nombre, contenido..." >
+        </form>
+       
+    
+        <div class="lista" id="listabusqueda">
+
         </div>
-    {% endfor %}
+    </div>
+   
+
+
+    <div class="cuadricula">
+        {% for evento in eventos %}
+
+            {% if evento['publicado']== true  %}
+                <div class="publicacion">
+                    <img class="imgPublicacion" src="{{ evento['imgPortada'] }}"/>
+                    {% if usuario['tipo'] == 'gestor' or usuario['tipo'] == 'superusuario'  %}
+                        <div class="editar">
+                            {% if usuario['tipo'] == 'gestor' %}
+                                <p class="publicado">PUBLICADO</p>
+                            {% endif %}
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="editarevento" value="{{ evento['id'] }}">
+                                <input id="botonEditar" type="image" src="../img/editar.png">
+                            </form>
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="eliminarevento" value="{{ evento['id'] }}">
+                                <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                            </form>
+                        </div>
+                        
+                    {% endif %}
+                        
+                    <p class="infoEvento">{{ evento['motivo'] }}</p>
+                    <p class="nombreArtista">{{ evento['nombreArtista'] }}</p>
+                    <a HREF={{ evento['urlEvento'] }}><div class="overlay"></div></a>
+                </div>
+            {% elseif  usuario['tipo'] == 'gestor'%}
+                <div class="publicacion">
+                    <img class="imgPublicacion" src="{{ evento['imgPortada'] }}"/>
+                    {% if usuario['tipo'] == 'gestor' or usuario['tipo'] == 'superusuario'  %}
+                        <div class="editar">
+                            <p class="nopublicado">NO PUBLICADO</p>
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="editarevento" value="{{ evento['id'] }}">
+                                <input id="botonEditar" type="image" src="../img/editar.png">
+                            </form>
+                            <form  action="/index.php" method="post">
+                                <input type="hidden" name="eliminarevento" value="{{ evento['id'] }}">
+                                <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                            </form>
+                        </div>
+                        
+                    {% endif %}
+                        
+                    <p class="infoEvento">{{ evento['motivo'] }}</p>
+                    <p class="nombreArtista">{{ evento['nombreArtista'] }}</p>
+                    <a HREF={{ evento['urlEvento'] }}><div class="overlay"></div></a>
+                </div>
+            {% endif %}
+
+
+        {% endfor %}
+    </div>
+
     
 {% endblock %}

@@ -1,0 +1,41 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="Stylesheet" type="text/css" href="../css/listas.css"/>
+{% endblock %}
+
+
+{% block article %}
+
+    <div class="contenedor">
+        <form class="busqueda" action="/listausuarios.php" method="post">
+            <input type="search" name="busqueda" placeholder="Buscar por nick...">
+            <input type="submit" value="Buscar" name="buscar">        
+        </form>
+    </div>
+
+  
+    <div class="contenedor">
+
+        {% for user in usuarios %}
+            <div class="usuario">
+                <div class="parte">
+                    <h1>{{ user['nick'] }}</h1>
+                    <div class="editar">
+                        <form  action="/listausuarios.php" method="post">
+                            <input type="hidden" name="editarpermisosusuario" value="{{ user['nick'] }}">
+                            <input id="botonEditar" type="image" src="../img/editar.png">
+                        </form>
+                    </div>
+                </div>
+                
+                <h2>{{ user['nombre'] }}</h2>
+                <h2>{{ user['apellidos'] }}</h2>
+                <h3>Email: {{ user['email'] }}</h3>
+                <p>Tipo: {{ user['tipo'] }}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

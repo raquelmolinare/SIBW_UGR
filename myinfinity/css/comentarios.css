@@ -14,9 +14,9 @@
     width: 30%;
     height: 100%;
 
-    display:none;
-
     position:fixed;
+
+    display: none;
 
     top: 0;
     right: 0;
@@ -209,7 +209,7 @@ textarea:focus {
 
 
 /*-----------Boton de enviar----------------*/
-.formulario>button {
+.formulario>input[type=submit] {
 
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
@@ -226,7 +226,7 @@ textarea:focus {
 
 }
 
-.formulario>button:hover {
+.formulario>input[type=submit]:hover {
     /*background-color: rgb(89, 199, 193);*/
     background-color: rgba(255, 255, 255, 0.87);
     color: #000;
@@ -234,6 +234,71 @@ textarea:focus {
     box-shadow:       	0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 	-webkit-box-shadow: 0px 0px 10px  rgba(0, 17, 255, 0.6); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
 	-moz-box-shadow:    0px 0px 10px  rgba(0, 17, 255, 0.6);  /* Firefox 3.5 - 3.6 */
+}
+
+/*-------- ACCIONES USUARIO -----------*/
+
+.parte{
+    display: flex;
+    justify-content: space-between;
+    align-content:space-between;
+}
+
+.editar{
+    width: 60%;
+    float:right;
+}
+
+.editar #botonEditar{
+    background-color: #fff;
+    width:12%;
+    min-width: 2em;
+    height: 90%;
+    
+    margin:2%;
+   
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+
+    float: right;
+
+    display: grid;
+    align-content: center;
+
+    outline: none;
+}
+
+.editar #botonEliminar{
+    background-color: #fff;
+    width:12%;
+    min-width: 2em;
+    height: 90%;
+    
+    margin:2%;
+   
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+
+    float: right;
+
+    display: grid;
+    align-content: center;
+
+    outline: none;
+}
+
+.editar #botonEditar:hover {
+    box-shadow:       	0px 0px 20px  rgba(0, 17, 255, 0.8);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 20px  rgba(0, 17, 255, 0.8); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 20px  rgba(0, 17, 255, 0.8);  /* Firefox 3.5 - 3.6 */
+}
+
+.editar #botonEliminar:hover {
+    box-shadow:       	0px 0px 20px  rgba(207, 0, 0 , 0.8);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+	-webkit-box-shadow: 0px 0px 20px  rgba(207, 0, 0 , 0.8); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 0px 20px  rgba(207, 0, 0 , 0.8);  /* Firefox 3.5 - 3.6 */
 }
 
 

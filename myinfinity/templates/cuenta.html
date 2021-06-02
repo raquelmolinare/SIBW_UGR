@@ -3,41 +3,106 @@
 {% block estilos %}
     {{parent()}}
     <link rel="StyleSheet" type="text/css" href="../css/cuenta.css" />
+    <link rel="StyleSheet" type="text/css" href="../css/edicion.css" />
 {% endblock %}
 
 
 {% block article %}
 
     {% if edicion == 1 %}
-
-        <div class="micuenta">
-
+        
+        <div class="contenido">
             <!--Formulario edidicon-->
-            <form class="formulario" action="cuenta.php" method="POST">
-                <!--Etiqueta Nick input-->
-                <label for="nickInput">Nick *</label><br>
-                <input type="text" id="nickInput" name="nuevonick" value=""><br>
-                <!--Etiqueta Nombre input-->
-                <label for="nombreInput">Nombre *</label><br>
-                <input type="text" id="nombreInput" name="nuevonombre" value=""><br>
-                <!--Etiqueta Apellidos input-->
-                <label for="nombreInput">Apellidos *</label><br>
-                <input type="text" id="apellidosnput" name="nuevoapellidos" value=""><br>
-                <!--Etiqueta Email input-->
-                <label for="emailInput">E-mail *</label><br>
-                <input type="text" id="emailInput" name="nuevoemail"  value=""><br>
-                <!--Etiqueta contraseña input-->
-                <label for="passwordInput">Nueva Contraseña *</label><br>
-                <input type="password" name="contraseña1" value="" /><br>
-                <label for="passwordInput">Repite la nueva contraseña *</label><br>
-                <input type="password" name="contraseña2" value="" /><br>
-
-                <p>*: Campos obligatorios</p>
-                <!--Boton Guardar-->
-                <input id="guardaredicion" type="submit" value="Guardar" />
+    
+            <form  action="/cuenta.php" method="post">
+                <input id="botonvolver" type="submit" name="volver" value="Volver">
             </form>
-            <a HREF="/cuenta.php"><button type="button" id="cancelaredicion" >Cancelar</button></a>
+    
+            <form class="editform" action="/cuenta.php" method="POST">
+                {% if error == 1 %}
+                    <h1 class="error">ERROR! Ha ocurrido un error, por favor inténtelo de nuevo :(</h1>
+                {% endif %}
+                {% if error == 0 %}
+                    <h1 class="correcto">Tu solicitud se ha realizado correctamente :)</h1>
+                {% endif %}
+                <!--NICK-->
+                <div class="fila">
+                    <div class="formulario">
+                        <!--Etiqueta Nick input-->
+                        <label for="nickInput">Nick</label><br>
+                        <input type="text" id="nickInput" name="nuevonick" value="{{ usuario['nick'] }}"><br>
+                    </div>
+                    <div class="botones">
+                        <!--Boton Cancelar-->
+                        <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                        <!--Boton Guardar-->
+                        <input id="guardaredicion" type="submit" name="guardarNick" value="Guardar" />
+                    </div>
+                </div>
+                <!--NOMBRE-->
+                <div class="fila">
+                    <div class="formulario">
+                        <!--Etiqueta Nombre input-->
+                        <label for="nombreInput">Nombre</label><br>
+                        <input type="text" id="nombreInput" name="nuevonombre" value="{{ usuario['nombre'] }}"><br>
+                    </div>
+                    <div class="botones">
+                        <!--Boton Cancelar-->
+                        <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                        <!--Boton Guardar-->
+                        <input id="guardaredicion" type="submit" name="guardarNombre" value="Guardar" />
+                    </div>
+                </div>
+                <!--APELLIDOS-->
+                <div class="fila">
+                    <div  class="formulario">
+                        <!--Etiqueta Apellidos input-->
+                        <label for="nombreInput">Apellidos</label><br>
+                        <input type="text" id="apellidosnput" name="nuevosapellidos" value="{{ usuario['apellidos'] }}"><br>
+                    </div>
+                    <div class="botones">
+                        <!--Boton Cancelar-->
+                        <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                        <!--Boton Guardar-->
+                        <input id="guardaredicion" type="submit" name="guardarApellidos" value="Guardar" />
+                       
+                    </div>
+                </div>
+                <!--EMAIL-->
+                <div class="fila">
+                    <div  class="formulario">
+                        <!--Etiqueta Email input-->
+                        <label for="emailInput">Email</label><br>
+                        <input type="text" id="apellidosnput" name="nuevoemail" value="{{ usuario['email'] }}"><br>
+                    </div>
+                    <div class="botones">
+                        <!--Boton Cancelar-->
+                        <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                        <!--Boton Guardar-->
+                        <input id="guardaredicion" type="submit" name="guardarEmail" value="Guardar" />
+                       
+                    </div>
+                </div>
 
+                <!--CONTRASEÑA-->
+                <div class="fila">
+                    <div  class="formulario">
+                        <!--Etiqueta contraseña input-->
+                        <label for="passwordInput">Nueva Contraseña</label><br>
+                        <input type="password" name="contraseña1" value="" /><br>
+                        <label for="passwordInput">Repite la nueva contraseña</label><br>
+                        <input type="password" name="contraseña2" value="" /><br>
+                    </div>
+                    <div class="botones">
+                        <!--Boton Cancelar-->
+                        <input id="cancelaredicion" type="submit" name="cancelar" value="Cancelar" />
+                        <!--Boton Guardar-->
+                        <input id="guardaredicion" type="submit" name="guardarContraseña" value="Guardar" />
+                       
+                    </div>
+                </div>
+
+            </form>
         </div>
         
     {% else %}

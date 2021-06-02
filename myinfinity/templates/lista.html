@@ -1,0 +1,14 @@
+<ul>
+    {% for eventobusqueda in busqueda %}
+        {% set nombre_completo =  eventobusqueda['nombre'] %}
+        {% set palabra_a_reemplazar = contenido %}
+        {% set cadena_de_reemplazo = '<span class="reemplazo">' ~ contenido ~ '</span>' %}
+        {% set nuevaurl = eventobusqueda['urlEvento']~'&busq='~contenido %}
+                     
+        {% if eventobusqueda['publicado']== true  %}
+            <a class="enlace" HREF={{ nuevaurl }}><li> {{ nombre_completo|replace({ (palabra_a_reemplazar): cadena_de_reemplazo }) | raw }} </li></a>
+        {% elseif  usuario['tipo'] == 'gestor'%}
+            <a class="enlace" HREF={{ nuevaurl }}><li> {{ nombre_completo|replace({ (palabra_a_reemplazar): cadena_de_reemplazo }) | raw }} </li></a>
+        {% endif %}
+    {% endfor %}
+</ul>

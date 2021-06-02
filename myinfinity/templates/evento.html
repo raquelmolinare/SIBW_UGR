@@ -15,64 +15,101 @@
 {% block principal %}
     {{parent()}}
 
-    <!--Panel de comentarios-->
-    <div id="panelComentarios">
+    {% block comments%}
+        <!--Pueden acceder a los comentarios aquellos usuariosque NO sean anonimos-->
+        {% if usuario['tipo'] != 'anonimo' %}
+            <!--Panel de comentarios-->
+            <div id="panelComentarios">
 
-        {% for prohibida in prohibidas %}
-            <div class="prohibidas" id="{{ prohibida }}"></div>
-        {% endfor %}
+                {% for prohibida in prohibidas %}
+                    <div class="prohibidas" id="{{ prohibida }}"></div>
+                {% endfor %}
 
-            <!--Boton para cerrar panel-->
-        <button type="button"  id="closeComentarios" ></button>
+                <!--Boton para cerrar panel-->
+                <button type="button"  id="closeComentarios" ></button>
 
-        <div class="comentarios">
+                <div class="comentarios">
 
-            {% for comentario in comentarios %}
-                <div class="comentario">
-                    <div id="contenedorImgProfile"><img id="imgProfile" src="../img/profile.jpg"></div>
-                    <h1>{{ comentario['nombreAutor'] }}</h1>
-                    
-                    <div id="textoComentario">
-                        <p>{{ comentario['comentario'] }}</p>
-                    </div>
-                    <h2>{{ comentario['fecha'] }}</h2>
+                    {% for comentario in comentarios %}
+                        <div class="comentario">
+                            <div class="parte">
+                                <div>
+                                    <div id="contenedorImgProfile"><img id="imgProfile" src="../img/profile.jpg"></div>
+                                    <h1>{{ comentario['nombreAutor'] }}</h1>
+                                </div>
+                                <!--A la parte de edicion solo pueden acceder los que NO sean usaurio anonumos ni registrados-->
+                                {% if usuario['tipo'] != 'registrado' %}
+                                    <div class="editar">
+                                        <form  action="/evento.php" method="post">
+                                            <input type="hidden" name="editarcomentario" value="{{ comentario['idComentario'] }}">
+                                            <input type="hidden" name="idEvento" value="{{ evento['id'] }}">
+                                            <input id="botonEditar" type="image" src="../img/editar.png">
+                                        </form>
+                                        <form  action="/evento.php" method="post">
+                                            <input type="hidden" name="eliminarcomentario" value="{{ comentario['idComentario'] }}">
+                                            <input type="hidden" name="idEvento" value="{{ evento['id'] }}">
+                                            <input id="botonEliminar" type="image" src="../img/eliminar.png">
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div id="textoComentario">
+                                <p>{{ comentario['comentario'] }}</p>
+                            </div>
+                            <div class="parte">
+                                <h2>{{ comentario['fecha'] }}</h2>
+                                {% if comentario['modificado'] == 1 %}
+                                    <h2>Mensaje editado por el moderador</h2>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
                 </div>
-            {% endfor %}
 
-        </div>
-
-        <!--Formulario-->
-        <form class="formulario">
-            <!--Etiqueta Nombre e input-->
-            <label for="nombreInput">Nombre</label><br>
-            <input type="text" id="nombreInput" name="nombreInput"><br>
-            <!--Etiqueta Email e input-->
-            <label for="emailInput">E-mail</label><br>
-            <input type="text" id="emailInput" name="emailInput"><br>
-            <!--Etiqueta Texto Comentario e input-->
-            <label for="comentarioInput">Comentario</label><br>
-            <textarea  id="comentarioInput" name="comentarioInput"></textarea>
-            <!--Boton enviar comentario-->
-            <button type="button" id="enviarComentario" >Enviar</button>
-        </form>
-        
-    </div>
+                <!--Formulario-->
+                <form class="formulario" action="/evento.php" method="post">
+                    <!--Etiqueta Nombre e input-->
+                    <!--<label for="nombreInput">Nombre</label><br>-->
+                    <!--<input type="text" id="nombreInput" name="nombreInput"><br>-->
+                    <!--Etiqueta Email e input-->
+                    <!--<label for="emailInput">E-mail</label><br>-->
+                    <!--<input type="text" id="emailInput" name="emailInput"><br>-->
+                    <!--Etiqueta Texto Comentario e input-->
+                    <label for="comentarioInput">Comentario</label><br>
+                    <textarea  id="comentarioInput" name="comentarioInput"></textarea>
+                    <!--Boton enviar comentario-->
+                    <input type="hidden" name="idEvento" value="{{ evento['id'] }}">
+                    <input id="enviarComentario" type="submit" name="nuevocomentario" value="Enviar">
+                </form>
+                
+            </div>
+        {% endif %}
+    {% endblock %}
 
 {% endblock %}
 
 {% block article %}
     <div class="informacion">
-        
+
+
+        {% set palabra_a_reemplazar = busqueda %}
+        {% set cadena_de_reemplazo = '<span class="reemplazo">' ~ busqueda ~ '</span>' %}
+
+
+             
         <!--Info del evento-->
         <div id="infoEvento">
-            <h1>{{ evento['nombre'] }}</h1>
+            <h1>{{ evento['nombre']|replace({ (palabra_a_reemplazar): cadena_de_reemplazo }) | raw }}</h1>
             <h2>{{ evento['lugar'] }}</h2>
             <h3>{{ evento['fecha'] }}</h3>
         </div>
 
         <div id="texto">
-            <p>{{ evento['descripcion'] }}</p>            
+            <p>{{ evento['descripcion']|replace({ (palabra_a_reemplazar): cadena_de_reemplazo }) | raw }}</p>            
         </div>
+
+        
 
         <div id="botones">
 
@@ -93,6 +130,8 @@
             {% endblock %}
 
         </div>
+
+        
 
     </div>
 

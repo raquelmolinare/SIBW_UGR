@@ -17,18 +17,19 @@
         //insertUser($nick, $pass, $nombre, $apellidos, $email, 'registrado');
         
         if( insertUser($nick, $pass, $nombre, $apellidos, $email, 'registrado') ){
+            
             session_start();
 
             //Se guarda en la sesion el nick del usuario que se ha logeado
             $_SESSION['nick'] = $nick;
 
-            header("Location: index.php");
+            header("Location: /index.php");
         }
         else{
-            header("Location: signup.php");
+            header("Location: /signup.php");
         }
 
-        header("Location: index.php");
+        header("Location: /index.php");
         exit();
     }
 

@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+{% block estilos %}
+    {{parent()}}
+    <link rel="StyleSheet" type="text/css" href="../css/edicion.css" />
+{% endblock %}
+
+
+{% block article %}
+
+<div class="contenido">
+    <!--Formulario edidicon-->
+    <div class="row">
+        <div class="usuario">
+            <form action="/editarusuarios.php" method="POST">    
+                <h1> {{ usuariobuscado['nick'] }} </h1><br>
+                <h2>{{ usuariobuscado['nombre'] }}</h2>
+                <h2>{{ usuariobuscado['apellidos'] }}</h2>
+                <h3>{{ usuariobuscado['email'] }}</h3>
+                <p>Tipo: {{ usuariobuscado['tipo'] }}</p>
+                <input type="hidden" name="editarpermisosusuario" value="{{ usuariobuscado['nick'] }}">
+                <input id="changeRegistrado" type="submit" name="changeRegistrado" value="Cambiar a Registrado" />
+                <input id="changeModerador" type="submit" name="changeModerador" value="Cambiar a Moderador" />
+                <input id="changeGestor" type="submit" name="changeGestor" value="Cambiar a Gestor" />
+                <input id="changeSuperusuario" type="submit" name="changeSuperusuario" value="Cambiar a Superusuario" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

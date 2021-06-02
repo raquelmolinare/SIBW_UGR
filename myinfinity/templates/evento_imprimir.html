@@ -10,6 +10,10 @@
 
 {% block article %}
     {{parent()}}
+    {% block comments%}
+    {% endblock %}
     {% block botonComentarios %}
     {% endblock %}
 {% endblock %}
+
+
