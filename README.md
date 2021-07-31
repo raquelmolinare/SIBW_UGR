@@ -10,6 +10,7 @@ Repositorio de las prácticas de la asignatura Sistemas de información basados 
 
 ## Resultado final: MyInfinity.
 *MyInfinity.* es una página web de conciertos, dinámica a partir de datos almacenados en una base de datos MySQL y con la posibilidad de realizar búsquedas de forma asíncrona.
+
 Cuenta con cinco tipos de usuarios:
 - **Anónimo**: Cualquier usuario que NO se haya identificado en el sistema. No podrá acceder a ninguna opción de edición de contenidos.
 Podrá darse de alta en la plataforma (como usuario registrado).
