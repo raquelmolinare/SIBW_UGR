@@ -21,5 +21,5 @@ sitio y cambiar sus datos de usuario.
 - **Superusuario**: Podrá realizar cualquier acción, incluyendo modificar los roles de los usuarios.
 
 
-*Consultar los guiones de las prácticas (en la carpeta 'Guiones prácticas') para conocer el funcionamiento y objetivos completos del proyecto.*
+*Consultar los guiones de las prácticas para conocer el funcionamiento y objetivos completos del proyecto.*
 
